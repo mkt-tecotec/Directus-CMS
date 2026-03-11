@@ -40,6 +40,18 @@ services:
     networks:
       - directus-net
 
+  # OPTION B: Dung neu chay cloudflared trong Docker thay vi systemd
+  # Xem huong dan: cloudflare/README.md
+  # cloudflared:
+  #   image: cloudflare/cloudflared:latest
+  #   container_name: directus-cloudflared
+  #   restart: unless-stopped
+  #   command: tunnel --no-autoupdate run --token ${CLOUDFLARE_TUNNEL_TOKEN}
+  #   depends_on:
+  #     - directus
+  #   networks:
+  #     - directus-net
+
 networks:
   directus-net:
     driver: bridge

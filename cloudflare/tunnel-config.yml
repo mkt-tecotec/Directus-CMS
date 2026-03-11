@@ -1,0 +1,11 @@
+# Cloudflare Tunnel config cho Directus CMS
+# File nay dat tai: ~/.cloudflared/config.yml (neu chay systemd)
+# hoac mount vao container cloudflared
+
+tunnel: <TUNNEL_ID>           # lay tu: cloudflared tunnel list
+credentials-file: /etc/cloudflared/<TUNNEL_ID>.json
+
+ingress:
+  - hostname: cms.tecotec.top
+    service: http://localhost:8055
+  - service: http_status:404
