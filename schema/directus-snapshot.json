@@ -1,0 +1,5572 @@
+{
+  "version": 1,
+  "directus": "11.16.1",
+  "vendor": "postgres",
+  "collections": [
+    {
+      "collection": "authors",
+      "meta": {
+        "accountability": "all",
+        "archive_app_filter": true,
+        "archive_field": null,
+        "archive_value": null,
+        "collapse": "open",
+        "collection": "authors",
+        "color": null,
+        "display_template": "{{display_name}}",
+        "group": null,
+        "hidden": false,
+        "icon": "person",
+        "item_duplication_fields": null,
+        "note": null,
+        "preview_url": null,
+        "singleton": false,
+        "sort": null,
+        "sort_field": null,
+        "translations": null,
+        "unarchive_value": null,
+        "versioning": false
+      },
+      "schema": {
+        "name": "authors"
+      }
+    },
+    {
+      "collection": "brands",
+      "meta": {
+        "accountability": "all",
+        "archive_app_filter": true,
+        "archive_field": null,
+        "archive_value": null,
+        "collapse": "open",
+        "collection": "brands",
+        "color": null,
+        "display_template": "{{name}}",
+        "group": null,
+        "hidden": false,
+        "icon": "style",
+        "item_duplication_fields": null,
+        "note": null,
+        "preview_url": null,
+        "singleton": false,
+        "sort": null,
+        "sort_field": null,
+        "translations": null,
+        "unarchive_value": null,
+        "versioning": false
+      },
+      "schema": {
+        "name": "brands"
+      }
+    },
+    {
+      "collection": "categories",
+      "meta": {
+        "accountability": "all",
+        "archive_app_filter": true,
+        "archive_field": null,
+        "archive_value": null,
+        "collapse": "open",
+        "collection": "categories",
+        "color": null,
+        "display_template": "{{name}}",
+        "group": null,
+        "hidden": false,
+        "icon": "folder",
+        "item_duplication_fields": null,
+        "note": null,
+        "preview_url": null,
+        "singleton": false,
+        "sort": null,
+        "sort_field": null,
+        "translations": null,
+        "unarchive_value": null,
+        "versioning": false
+      },
+      "schema": {
+        "name": "categories"
+      }
+    },
+    {
+      "collection": "languages",
+      "meta": {
+        "accountability": "all",
+        "archive_app_filter": true,
+        "archive_field": null,
+        "archive_value": null,
+        "collapse": "open",
+        "collection": "languages",
+        "color": null,
+        "display_template": "{{name}}",
+        "group": null,
+        "hidden": false,
+        "icon": "translate",
+        "item_duplication_fields": null,
+        "note": null,
+        "preview_url": null,
+        "singleton": false,
+        "sort": null,
+        "sort_field": null,
+        "translations": null,
+        "unarchive_value": null,
+        "versioning": false
+      },
+      "schema": {
+        "name": "languages"
+      }
+    },
+    {
+      "collection": "post_translations",
+      "meta": {
+        "accountability": "all",
+        "archive_app_filter": true,
+        "archive_field": null,
+        "archive_value": null,
+        "collapse": "open",
+        "collection": "post_translations",
+        "color": null,
+        "display_template": "{{language}} - {{title}}",
+        "group": null,
+        "hidden": false,
+        "icon": "translate",
+        "item_duplication_fields": null,
+        "note": null,
+        "preview_url": null,
+        "singleton": false,
+        "sort": null,
+        "sort_field": null,
+        "translations": null,
+        "unarchive_value": null,
+        "versioning": false
+      },
+      "schema": {
+        "name": "post_translations"
+      }
+    },
+    {
+      "collection": "posts",
+      "meta": {
+        "accountability": "all",
+        "archive_app_filter": true,
+        "archive_field": null,
+        "archive_value": null,
+        "collapse": "open",
+        "collection": "posts",
+        "color": null,
+        "display_template": "{{title}}",
+        "group": null,
+        "hidden": false,
+        "icon": "article",
+        "item_duplication_fields": null,
+        "note": null,
+        "preview_url": null,
+        "singleton": false,
+        "sort": null,
+        "sort_field": "date_created",
+        "translations": null,
+        "unarchive_value": null,
+        "versioning": false
+      },
+      "schema": {
+        "name": "posts"
+      }
+    },
+    {
+      "collection": "posts_brands",
+      "meta": {
+        "accountability": "all",
+        "archive_app_filter": true,
+        "archive_field": null,
+        "archive_value": null,
+        "collapse": "open",
+        "collection": "posts_brands",
+        "color": null,
+        "display_template": null,
+        "group": null,
+        "hidden": true,
+        "icon": "import_export",
+        "item_duplication_fields": null,
+        "note": null,
+        "preview_url": null,
+        "singleton": false,
+        "sort": null,
+        "sort_field": null,
+        "translations": null,
+        "unarchive_value": null,
+        "versioning": false
+      },
+      "schema": {
+        "name": "posts_brands"
+      }
+    },
+    {
+      "collection": "posts_sites",
+      "meta": {
+        "accountability": "all",
+        "archive_app_filter": true,
+        "archive_field": null,
+        "archive_value": null,
+        "collapse": "open",
+        "collection": "posts_sites",
+        "color": null,
+        "display_template": "{{site_id.name}} - {{publish_status}}",
+        "group": null,
+        "hidden": false,
+        "icon": "publish",
+        "item_duplication_fields": null,
+        "note": null,
+        "preview_url": null,
+        "singleton": false,
+        "sort": null,
+        "sort_field": null,
+        "translations": null,
+        "unarchive_value": null,
+        "versioning": false
+      },
+      "schema": {
+        "name": "posts_sites"
+      }
+    },
+    {
+      "collection": "posts_tags",
+      "meta": {
+        "accountability": "all",
+        "archive_app_filter": true,
+        "archive_field": null,
+        "archive_value": null,
+        "collapse": "open",
+        "collection": "posts_tags",
+        "color": null,
+        "display_template": null,
+        "group": null,
+        "hidden": true,
+        "icon": "import_export",
+        "item_duplication_fields": null,
+        "note": null,
+        "preview_url": null,
+        "singleton": false,
+        "sort": null,
+        "sort_field": null,
+        "translations": null,
+        "unarchive_value": null,
+        "versioning": false
+      },
+      "schema": {
+        "name": "posts_tags"
+      }
+    },
+    {
+      "collection": "sites",
+      "meta": {
+        "accountability": "all",
+        "archive_app_filter": true,
+        "archive_field": null,
+        "archive_value": null,
+        "collapse": "open",
+        "collection": "sites",
+        "color": null,
+        "display_template": "{{name}}",
+        "group": null,
+        "hidden": false,
+        "icon": "language",
+        "item_duplication_fields": null,
+        "note": null,
+        "preview_url": null,
+        "singleton": false,
+        "sort": null,
+        "sort_field": null,
+        "translations": null,
+        "unarchive_value": null,
+        "versioning": false
+      },
+      "schema": {
+        "name": "sites"
+      }
+    },
+    {
+      "collection": "tags",
+      "meta": {
+        "accountability": "all",
+        "archive_app_filter": true,
+        "archive_field": null,
+        "archive_value": null,
+        "collapse": "open",
+        "collection": "tags",
+        "color": null,
+        "display_template": "{{name}}",
+        "group": null,
+        "hidden": false,
+        "icon": "sell",
+        "item_duplication_fields": null,
+        "note": null,
+        "preview_url": null,
+        "singleton": false,
+        "sort": null,
+        "sort_field": null,
+        "translations": null,
+        "unarchive_value": null,
+        "versioning": false
+      },
+      "schema": {
+        "name": "tags"
+      }
+    }
+  ],
+  "fields": [
+    {
+      "collection": "authors",
+      "field": "id",
+      "type": "uuid",
+      "meta": {
+        "collection": "authors",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "id",
+        "group": null,
+        "hidden": true,
+        "interface": null,
+        "note": null,
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 1,
+        "special": [
+          "uuid"
+        ],
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "id",
+        "table": "authors",
+        "data_type": "uuid",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": false,
+        "is_unique": true,
+        "is_indexed": false,
+        "is_primary_key": true,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "authors",
+      "field": "display_name",
+      "type": "string",
+      "meta": {
+        "collection": "authors",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "display_name",
+        "group": null,
+        "hidden": false,
+        "interface": "input",
+        "note": "Tên hiển thị của tác giả trên bài viết",
+        "options": null,
+        "readonly": false,
+        "required": true,
+        "searchable": true,
+        "sort": 2,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Tên hiển thị"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "display_name",
+        "table": "authors",
+        "data_type": "character varying",
+        "default_value": null,
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "authors",
+      "field": "email",
+      "type": "string",
+      "meta": {
+        "collection": "authors",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "email",
+        "group": null,
+        "hidden": false,
+        "interface": "input",
+        "note": "Email liên hệ của tác giả",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 3,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Email"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "email",
+        "table": "authors",
+        "data_type": "character varying",
+        "default_value": null,
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "authors",
+      "field": "bio",
+      "type": "text",
+      "meta": {
+        "collection": "authors",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "bio",
+        "group": null,
+        "hidden": false,
+        "interface": "input-multiline",
+        "note": "Tiểu sử ngắn. Hiển thị trong author box trên WP",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 4,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Tiểu sử"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "bio",
+        "table": "authors",
+        "data_type": "text",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "authors",
+      "field": "avatar",
+      "type": "uuid",
+      "meta": {
+        "collection": "authors",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "avatar",
+        "group": null,
+        "hidden": false,
+        "interface": "file-image",
+        "note": "Ảnh đại diện tác giả",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 5,
+        "special": [
+          "file"
+        ],
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Ảnh đại diện"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "avatar",
+        "table": "authors",
+        "data_type": "uuid",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": "directus_files",
+        "foreign_key_column": "id"
+      }
+    },
+    {
+      "collection": "authors",
+      "field": "directus_user",
+      "type": "uuid",
+      "meta": {
+        "collection": "authors",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "directus_user",
+        "group": null,
+        "hidden": false,
+        "interface": "select-dropdown-m2o",
+        "note": "Liên kết với tài khoản Directus tương ứng",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 6,
+        "special": [
+          "m2o"
+        ],
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Tài khoản Directus"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "directus_user",
+        "table": "authors",
+        "data_type": "uuid",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": "directus_users",
+        "foreign_key_column": "id"
+      }
+    },
+    {
+      "collection": "brands",
+      "field": "id",
+      "type": "uuid",
+      "meta": {
+        "collection": "brands",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "id",
+        "group": null,
+        "hidden": true,
+        "interface": "input",
+        "note": null,
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 1,
+        "special": [
+          "uuid"
+        ],
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "id",
+        "table": "brands",
+        "data_type": "uuid",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": false,
+        "is_unique": true,
+        "is_indexed": false,
+        "is_primary_key": true,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "brands",
+      "field": "name",
+      "type": "string",
+      "meta": {
+        "collection": "brands",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "name",
+        "group": null,
+        "hidden": false,
+        "interface": "input",
+        "note": "Tên brand trong hệ sinh thái TMK Holdings",
+        "options": null,
+        "readonly": false,
+        "required": true,
+        "searchable": true,
+        "sort": 2,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Tên brand"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "name",
+        "table": "brands",
+        "data_type": "character varying",
+        "default_value": null,
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "brands",
+      "field": "slug",
+      "type": "string",
+      "meta": {
+        "collection": "brands",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "slug",
+        "group": null,
+        "hidden": false,
+        "interface": "input",
+        "note": "Slug định danh nội bộ (vd: tecotec-group, ccw)",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 3,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Slug"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "slug",
+        "table": "brands",
+        "data_type": "character varying",
+        "default_value": null,
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": true,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "brands",
+      "field": "color",
+      "type": "string",
+      "meta": {
+        "collection": "brands",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "color",
+        "group": null,
+        "hidden": false,
+        "interface": "color",
+        "note": "Màu chủ đạo của brand (hex code)",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 4,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Màu chủ đạo"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "color",
+        "table": "brands",
+        "data_type": "character varying",
+        "default_value": null,
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "brands",
+      "field": "logo",
+      "type": "uuid",
+      "meta": {
+        "collection": "brands",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "logo",
+        "group": null,
+        "hidden": false,
+        "interface": "file-image",
+        "note": "Logo brand. Lưu trong Directus Files",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 5,
+        "special": [
+          "file"
+        ],
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Logo"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "logo",
+        "table": "brands",
+        "data_type": "uuid",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": "directus_files",
+        "foreign_key_column": "id"
+      }
+    },
+    {
+      "collection": "categories",
+      "field": "id",
+      "type": "uuid",
+      "meta": {
+        "collection": "categories",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "id",
+        "group": null,
+        "hidden": true,
+        "interface": null,
+        "note": null,
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 1,
+        "special": [
+          "uuid"
+        ],
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "id",
+        "table": "categories",
+        "data_type": "uuid",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": false,
+        "is_unique": true,
+        "is_indexed": false,
+        "is_primary_key": true,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "categories",
+      "field": "name",
+      "type": "string",
+      "meta": {
+        "collection": "categories",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "name",
+        "group": null,
+        "hidden": false,
+        "interface": "input",
+        "note": "Tên danh mục hiển thị",
+        "options": null,
+        "readonly": false,
+        "required": true,
+        "searchable": true,
+        "sort": 2,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Tên danh mục"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "name",
+        "table": "categories",
+        "data_type": "character varying",
+        "default_value": null,
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "categories",
+      "field": "slug",
+      "type": "string",
+      "meta": {
+        "collection": "categories",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "slug",
+        "group": null,
+        "hidden": false,
+        "interface": "input",
+        "note": "Slug URL của danh mục",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 3,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Slug"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "slug",
+        "table": "categories",
+        "data_type": "character varying",
+        "default_value": null,
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": true,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "categories",
+      "field": "description",
+      "type": "text",
+      "meta": {
+        "collection": "categories",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "description",
+        "group": null,
+        "hidden": false,
+        "interface": "input-multiline",
+        "note": "Mô tả danh mục (dùng cho SEO category page)",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 4,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Mô tả"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "description",
+        "table": "categories",
+        "data_type": "text",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "categories",
+      "field": "parent",
+      "type": "uuid",
+      "meta": {
+        "collection": "categories",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "parent",
+        "group": null,
+        "hidden": false,
+        "interface": "select-dropdown-m2o",
+        "note": "Danh mục cha (để tạo cấu trúc phân cấp)",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 5,
+        "special": [
+          "m2o"
+        ],
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Danh mục cha"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "parent",
+        "table": "categories",
+        "data_type": "uuid",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": "categories",
+        "foreign_key_column": "id"
+      }
+    },
+    {
+      "collection": "categories",
+      "field": "brand",
+      "type": "uuid",
+      "meta": {
+        "collection": "categories",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "brand",
+        "group": null,
+        "hidden": false,
+        "interface": "select-dropdown-m2o",
+        "note": "Danh mục này thuộc brand nào",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 6,
+        "special": [
+          "m2o"
+        ],
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Brand"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "brand",
+        "table": "categories",
+        "data_type": "uuid",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": "brands",
+        "foreign_key_column": "id"
+      }
+    },
+    {
+      "collection": "categories",
+      "field": "wp_category_id",
+      "type": "json",
+      "meta": {
+        "collection": "categories",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "wp_category_id",
+        "group": null,
+        "hidden": false,
+        "interface": "input-code",
+        "note": "ID danh mục trên từng WP site. Format: {\"ten-site\": 12}",
+        "options": {
+          "language": "json"
+        },
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 7,
+        "special": [
+          "cast-json"
+        ],
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "WP Category ID"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "wp_category_id",
+        "table": "categories",
+        "data_type": "json",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "languages",
+      "field": "code",
+      "type": "string",
+      "meta": {
+        "collection": "languages",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "code",
+        "group": null,
+        "hidden": false,
+        "interface": "input",
+        "note": "Mã ngôn ngữ ISO 639-1 (vd: vi, en)",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 1,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Mã ngôn ngữ"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "code",
+        "table": "languages",
+        "data_type": "character varying",
+        "default_value": null,
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": false,
+        "is_unique": true,
+        "is_indexed": false,
+        "is_primary_key": true,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "languages",
+      "field": "name",
+      "type": "string",
+      "meta": {
+        "collection": "languages",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "name",
+        "group": null,
+        "hidden": false,
+        "interface": "input",
+        "note": "Tên ngôn ngữ (vd: Tiếng Việt, English)",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 2,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Tên ngôn ngữ"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "name",
+        "table": "languages",
+        "data_type": "character varying",
+        "default_value": null,
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "languages",
+      "field": "default",
+      "type": "boolean",
+      "meta": {
+        "collection": "languages",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "default",
+        "group": null,
+        "hidden": false,
+        "interface": "boolean",
+        "note": "Đánh dấu ngôn ngữ mặc định của hệ thống",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 3,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Mặc định"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "default",
+        "table": "languages",
+        "data_type": "boolean",
+        "default_value": false,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "post_translations",
+      "field": "id",
+      "type": "uuid",
+      "meta": {
+        "collection": "post_translations",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "id",
+        "group": null,
+        "hidden": true,
+        "interface": null,
+        "note": null,
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 1,
+        "special": [
+          "uuid"
+        ],
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "id",
+        "table": "post_translations",
+        "data_type": "uuid",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": false,
+        "is_unique": true,
+        "is_indexed": false,
+        "is_primary_key": true,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "post_translations",
+      "field": "posts_id",
+      "type": "uuid",
+      "meta": {
+        "collection": "post_translations",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "posts_id",
+        "group": null,
+        "hidden": false,
+        "interface": "select-dropdown-m2o",
+        "note": "Bài viết gốc",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 2,
+        "special": [
+          "m2o"
+        ],
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Bài viết gốc"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "posts_id",
+        "table": "post_translations",
+        "data_type": "uuid",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": "posts",
+        "foreign_key_column": "id"
+      }
+    },
+    {
+      "collection": "post_translations",
+      "field": "language",
+      "type": "string",
+      "meta": {
+        "collection": "post_translations",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "language",
+        "group": null,
+        "hidden": false,
+        "interface": "select-dropdown-m2o",
+        "note": "Ngôn ngữ của bản dịch này",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 3,
+        "special": [
+          "m2o"
+        ],
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Ngôn ngữ"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "half"
+      },
+      "schema": {
+        "name": "language",
+        "table": "post_translations",
+        "data_type": "character varying",
+        "default_value": null,
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": "languages",
+        "foreign_key_column": "code"
+      }
+    },
+    {
+      "collection": "post_translations",
+      "field": "title",
+      "type": "string",
+      "meta": {
+        "collection": "post_translations",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "title",
+        "group": null,
+        "hidden": false,
+        "interface": "input",
+        "note": "Tiêu đề bản dịch",
+        "options": null,
+        "readonly": false,
+        "required": true,
+        "searchable": true,
+        "sort": 4,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Tiêu đề"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "title",
+        "table": "post_translations",
+        "data_type": "character varying",
+        "default_value": null,
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "post_translations",
+      "field": "slug",
+      "type": "string",
+      "meta": {
+        "collection": "post_translations",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "slug",
+        "group": null,
+        "hidden": false,
+        "interface": "input",
+        "note": "Slug riêng cho ngôn ngữ này",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 5,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Slug"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "half"
+      },
+      "schema": {
+        "name": "slug",
+        "table": "post_translations",
+        "data_type": "character varying",
+        "default_value": null,
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "post_translations",
+      "field": "excerpt",
+      "type": "text",
+      "meta": {
+        "collection": "post_translations",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "excerpt",
+        "group": null,
+        "hidden": false,
+        "interface": "input-multiline",
+        "note": "Tóm tắt bản dịch",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 6,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Tóm tắt"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "excerpt",
+        "table": "post_translations",
+        "data_type": "text",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "post_translations",
+      "field": "content",
+      "type": "text",
+      "meta": {
+        "collection": "post_translations",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "content",
+        "group": null,
+        "hidden": false,
+        "interface": "input-rich-text-html",
+        "note": "Nội dung bản dịch",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 7,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Nội dung"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "content",
+        "table": "post_translations",
+        "data_type": "text",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "post_translations",
+      "field": "seo_title",
+      "type": "string",
+      "meta": {
+        "collection": "post_translations",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "seo_title",
+        "group": null,
+        "hidden": false,
+        "interface": "input",
+        "note": "Tiêu đề SEO của bản dịch",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 8,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Tiêu đề SEO"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "half"
+      },
+      "schema": {
+        "name": "seo_title",
+        "table": "post_translations",
+        "data_type": "character varying",
+        "default_value": null,
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "post_translations",
+      "field": "seo_description",
+      "type": "text",
+      "meta": {
+        "collection": "post_translations",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "seo_description",
+        "group": null,
+        "hidden": false,
+        "interface": "input-multiline",
+        "note": "Mô tả SEO của bản dịch",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 9,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Mô tả SEO"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "seo_description",
+        "table": "post_translations",
+        "data_type": "text",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "id",
+      "type": "uuid",
+      "meta": {
+        "collection": "posts",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "id",
+        "group": null,
+        "hidden": true,
+        "interface": null,
+        "note": null,
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 1,
+        "special": [
+          "uuid"
+        ],
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "id",
+        "table": "posts",
+        "data_type": "uuid",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": false,
+        "is_unique": true,
+        "is_indexed": false,
+        "is_primary_key": true,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "status",
+      "type": "string",
+      "meta": {
+        "collection": "posts",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "status",
+        "group": null,
+        "hidden": false,
+        "interface": "select-dropdown",
+        "note": "Trạng thái bài viết trong quy trình duyệt",
+        "options": {
+          "choices": [
+            {
+              "color": "#B0BEC5",
+              "text": "Draft",
+              "value": "draft"
+            },
+            {
+              "color": "#FFB300",
+              "text": "In Review",
+              "value": "review"
+            },
+            {
+              "color": "#66BB6A",
+              "text": "Approved",
+              "value": "approved"
+            },
+            {
+              "color": "#1E88E5",
+              "text": "Published",
+              "value": "published"
+            },
+            {
+              "color": "#EF5350",
+              "text": "Archived",
+              "value": "archived"
+            },
+            {
+              "color": "#E53935",
+              "text": "Rejected",
+              "value": "rejected"
+            }
+          ]
+        },
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 2,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Trạng thái"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "half"
+      },
+      "schema": {
+        "name": "status",
+        "table": "posts",
+        "data_type": "character varying",
+        "default_value": "draft",
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "date_created",
+      "type": "timestamp",
+      "meta": {
+        "collection": "posts",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "date_created",
+        "group": null,
+        "hidden": true,
+        "interface": "datetime",
+        "note": "Thời điểm tạo bài (tự động)",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 3,
+        "special": [
+          "date-created"
+        ],
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Ngày tạo"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "date_created",
+        "table": "posts",
+        "data_type": "timestamp with time zone",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "date_updated",
+      "type": "timestamp",
+      "meta": {
+        "collection": "posts",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "date_updated",
+        "group": null,
+        "hidden": true,
+        "interface": "datetime",
+        "note": "Thời điểm cập nhật cuối (tự động)",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 4,
+        "special": [
+          "date-updated"
+        ],
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Ngày cập nhật"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "date_updated",
+        "table": "posts",
+        "data_type": "timestamp with time zone",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "user_created",
+      "type": "uuid",
+      "meta": {
+        "collection": "posts",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "user_created",
+        "group": null,
+        "hidden": true,
+        "interface": "select-dropdown-m2o",
+        "note": "Người tạo bài (tự động)",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 5,
+        "special": [
+          "user-created"
+        ],
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Người tạo"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "user_created",
+        "table": "posts",
+        "data_type": "uuid",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "user_updated",
+      "type": "uuid",
+      "meta": {
+        "collection": "posts",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "user_updated",
+        "group": null,
+        "hidden": true,
+        "interface": "select-dropdown-m2o",
+        "note": "Người cập nhật cuối (tự động)",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 6,
+        "special": [
+          "user-updated"
+        ],
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Người cập nhật"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "user_updated",
+        "table": "posts",
+        "data_type": "uuid",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "divider_content",
+      "type": "alias",
+      "meta": {
+        "collection": "posts",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "divider_content",
+        "group": null,
+        "hidden": false,
+        "interface": "presentation-divider",
+        "note": null,
+        "options": {
+          "title": "Content"
+        },
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 7,
+        "special": [
+          "alias",
+          "no-data"
+        ],
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "title",
+      "type": "string",
+      "meta": {
+        "collection": "posts",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "title",
+        "group": null,
+        "hidden": false,
+        "interface": "input",
+        "note": "Tiêu đề gốc của bài viết (ngôn ngữ chính)",
+        "options": null,
+        "readonly": false,
+        "required": true,
+        "searchable": true,
+        "sort": 8,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Tiêu đề"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "title",
+        "table": "posts",
+        "data_type": "character varying",
+        "default_value": null,
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "slug",
+      "type": "string",
+      "meta": {
+        "collection": "posts",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "slug",
+        "group": null,
+        "hidden": false,
+        "interface": "input",
+        "note": "Đường dẫn URL. Tự động tạo từ tiêu đề nếu để trống",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 9,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Slug URL"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "slug",
+        "table": "posts",
+        "data_type": "character varying",
+        "default_value": null,
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": true,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "language",
+      "type": "string",
+      "meta": {
+        "collection": "posts",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "language",
+        "group": null,
+        "hidden": false,
+        "interface": "select-dropdown-m2o",
+        "note": "Ngôn ngữ gốc của bài viết",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 10,
+        "special": [
+          "m2o"
+        ],
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Ngôn ngữ"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "half"
+      },
+      "schema": {
+        "name": "language",
+        "table": "posts",
+        "data_type": "character varying",
+        "default_value": "vi",
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": "languages",
+        "foreign_key_column": "code"
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "excerpt",
+      "type": "text",
+      "meta": {
+        "collection": "posts",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "excerpt",
+        "group": null,
+        "hidden": false,
+        "interface": "input-multiline",
+        "note": "Tóm tắt ngắn. Dùng làm WP excerpt (tối đa 300 ký tự)",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 11,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Tóm tắt"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "excerpt",
+        "table": "posts",
+        "data_type": "text",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "content",
+      "type": "text",
+      "meta": {
+        "collection": "posts",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "content",
+        "group": null,
+        "hidden": false,
+        "interface": "input-rich-text-html",
+        "note": "Nội dung chính của bài viết",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 12,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Nội dung"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "content",
+        "table": "posts",
+        "data_type": "text",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "content_format",
+      "type": "string",
+      "meta": {
+        "collection": "posts",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "content_format",
+        "group": null,
+        "hidden": false,
+        "interface": "select-dropdown",
+        "note": "Định dạng nội dung: HTML (mặc định), Markdown, hoặc Blocks",
+        "options": {
+          "choices": [
+            {
+              "text": "HTML",
+              "value": "html"
+            },
+            {
+              "text": "Markdown",
+              "value": "markdown"
+            },
+            {
+              "text": "Blocks",
+              "value": "blocks"
+            }
+          ]
+        },
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 13,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Định dạng nội dung"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "half"
+      },
+      "schema": {
+        "name": "content_format",
+        "table": "posts",
+        "data_type": "character varying",
+        "default_value": "html",
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "featured_image",
+      "type": "uuid",
+      "meta": {
+        "collection": "posts",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "featured_image",
+        "group": null,
+        "hidden": false,
+        "interface": "file-image",
+        "note": "Ảnh đại diện bài viết. Lưu trong Directus, n8n sẽ đẩy lên WP",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 14,
+        "special": [
+          "file"
+        ],
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Ảnh đại diện"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "featured_image",
+        "table": "posts",
+        "data_type": "uuid",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": "directus_files",
+        "foreign_key_column": "id"
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "divider_taxonomy",
+      "type": "alias",
+      "meta": {
+        "collection": "posts",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "divider_taxonomy",
+        "group": null,
+        "hidden": false,
+        "interface": "presentation-divider",
+        "note": null,
+        "options": {
+          "title": "Taxonomy"
+        },
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 15,
+        "special": [
+          "alias",
+          "no-data"
+        ],
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "author",
+      "type": "uuid",
+      "meta": {
+        "collection": "posts",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "author",
+        "group": null,
+        "hidden": false,
+        "interface": "select-dropdown-m2o",
+        "note": "Tác giả chính của bài viết",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 16,
+        "special": [
+          "m2o"
+        ],
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Tác giả"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "half"
+      },
+      "schema": {
+        "name": "author",
+        "table": "posts",
+        "data_type": "uuid",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": "authors",
+        "foreign_key_column": "id"
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "category",
+      "type": "uuid",
+      "meta": {
+        "collection": "posts",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "category",
+        "group": null,
+        "hidden": false,
+        "interface": "select-dropdown-m2o",
+        "note": "Danh mục chính (1 danh mục duy nhất)",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 17,
+        "special": [
+          "m2o"
+        ],
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Danh mục"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "half"
+      },
+      "schema": {
+        "name": "category",
+        "table": "posts",
+        "data_type": "uuid",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": "categories",
+        "foreign_key_column": "id"
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "tags",
+      "type": "alias",
+      "meta": {
+        "collection": "posts",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "tags",
+        "group": null,
+        "hidden": false,
+        "interface": "list-m2m",
+        "note": "Tags bổ sung (nhiều tags, không giới hạn)",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 18,
+        "special": [
+          "m2m"
+        ],
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Tags"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "brands",
+      "type": "alias",
+      "meta": {
+        "collection": "posts",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "brands",
+        "group": null,
+        "hidden": false,
+        "interface": "list-m2m",
+        "note": "Bài viết thuộc brand nào trong hệ sinh thái TMK",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 19,
+        "special": [
+          "m2m"
+        ],
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Brands"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "divider_seo",
+      "type": "alias",
+      "meta": {
+        "collection": "posts",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "divider_seo",
+        "group": null,
+        "hidden": false,
+        "interface": "presentation-divider",
+        "note": null,
+        "options": {
+          "title": "SEO (RankMath)"
+        },
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 20,
+        "special": [
+          "alias",
+          "no-data"
+        ],
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "seo_title",
+      "type": "string",
+      "meta": {
+        "collection": "posts",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "seo_title",
+        "group": null,
+        "hidden": false,
+        "interface": "input",
+        "note": "Tiêu đề SEO. Map sang rank_math_title trên WP",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 21,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Tiêu đề SEO"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "seo_title",
+        "table": "posts",
+        "data_type": "character varying",
+        "default_value": null,
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "seo_description",
+      "type": "text",
+      "meta": {
+        "collection": "posts",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "seo_description",
+        "group": null,
+        "hidden": false,
+        "interface": "input-multiline",
+        "note": "Mô tả SEO (tối đa 160 ký tự). Map sang rank_math_description",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 22,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Mô tả SEO"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "seo_description",
+        "table": "posts",
+        "data_type": "text",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "seo_focus_keyword",
+      "type": "string",
+      "meta": {
+        "collection": "posts",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "seo_focus_keyword",
+        "group": null,
+        "hidden": false,
+        "interface": "input",
+        "note": "Từ khóa trọng tâm. Map sang rank_math_focus_keyword",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 23,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Từ khóa trọng tâm"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "half"
+      },
+      "schema": {
+        "name": "seo_focus_keyword",
+        "table": "posts",
+        "data_type": "character varying",
+        "default_value": null,
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "seo_canonical_url",
+      "type": "string",
+      "meta": {
+        "collection": "posts",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "seo_canonical_url",
+        "group": null,
+        "hidden": false,
+        "interface": "input",
+        "note": "URL canonical nếu bài này là bản copy từ nơi khác",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 24,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "URL Canonical"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "half"
+      },
+      "schema": {
+        "name": "seo_canonical_url",
+        "table": "posts",
+        "data_type": "character varying",
+        "default_value": null,
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "seo_robots",
+      "type": "string",
+      "meta": {
+        "collection": "posts",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "seo_robots",
+        "group": null,
+        "hidden": false,
+        "interface": "select-dropdown",
+        "note": "Chỉ thị cho Google: index hay noindex",
+        "options": {
+          "choices": [
+            {
+              "text": "Index, Follow",
+              "value": "index,follow"
+            },
+            {
+              "text": "Noindex, Follow",
+              "value": "noindex,follow"
+            },
+            {
+              "text": "Noindex, Nofollow",
+              "value": "noindex,nofollow"
+            }
+          ]
+        },
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 25,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Robots"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "half"
+      },
+      "schema": {
+        "name": "seo_robots",
+        "table": "posts",
+        "data_type": "character varying",
+        "default_value": "index,follow",
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "schema_type",
+      "type": "string",
+      "meta": {
+        "collection": "posts",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "schema_type",
+        "group": null,
+        "hidden": false,
+        "interface": "select-dropdown",
+        "note": "Loại Schema.org. BlogPosting cho bài blog thông thường",
+        "options": {
+          "choices": [
+            {
+              "text": "BlogPosting",
+              "value": "BlogPosting"
+            },
+            {
+              "text": "Article",
+              "value": "Article"
+            },
+            {
+              "text": "NewsArticle",
+              "value": "NewsArticle"
+            },
+            {
+              "text": "HowTo",
+              "value": "HowTo"
+            }
+          ]
+        },
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 26,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Schema Type"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "half"
+      },
+      "schema": {
+        "name": "schema_type",
+        "table": "posts",
+        "data_type": "character varying",
+        "default_value": "BlogPosting",
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "og_title",
+      "type": "string",
+      "meta": {
+        "collection": "posts",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "og_title",
+        "group": null,
+        "hidden": false,
+        "interface": "input",
+        "note": "Tiêu đề khi chia sẻ lên Facebook/Zalo. Nếu trống dùng seo_title",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 27,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Tiêu đề OG"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "half"
+      },
+      "schema": {
+        "name": "og_title",
+        "table": "posts",
+        "data_type": "character varying",
+        "default_value": null,
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "og_description",
+      "type": "text",
+      "meta": {
+        "collection": "posts",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "og_description",
+        "group": null,
+        "hidden": false,
+        "interface": "input-multiline",
+        "note": "Mô tả khi chia sẻ lên mạng xã hội",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 28,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Mô tả OG"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "og_description",
+        "table": "posts",
+        "data_type": "text",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "og_image",
+      "type": "uuid",
+      "meta": {
+        "collection": "posts",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "og_image",
+        "group": null,
+        "hidden": false,
+        "interface": "file-image",
+        "note": "Ảnh thumbnail khi chia sẻ lên Facebook/Zalo (tỷ lệ 1200x630)",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 29,
+        "special": [
+          "file"
+        ],
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Ảnh OG"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "og_image",
+        "table": "posts",
+        "data_type": "uuid",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": "directus_files",
+        "foreign_key_column": "id"
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "divider_publish",
+      "type": "alias",
+      "meta": {
+        "collection": "posts",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "divider_publish",
+        "group": null,
+        "hidden": false,
+        "interface": "presentation-divider",
+        "note": null,
+        "options": {
+          "title": "Publishing"
+        },
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 30,
+        "special": [
+          "alias",
+          "no-data"
+        ],
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "publish_date",
+      "type": "dateTime",
+      "meta": {
+        "collection": "posts",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "publish_date",
+        "group": null,
+        "hidden": false,
+        "interface": "datetime",
+        "note": "Ngày giờ dự kiến đăng bài",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 31,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Ngày đăng"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "half"
+      },
+      "schema": {
+        "name": "publish_date",
+        "table": "posts",
+        "data_type": "timestamp without time zone",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "wp_post_type",
+      "type": "string",
+      "meta": {
+        "collection": "posts",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "wp_post_type",
+        "group": null,
+        "hidden": false,
+        "interface": "select-dropdown",
+        "note": "Loại bài trên WordPress: Post, Page, hoặc Product",
+        "options": {
+          "choices": [
+            {
+              "text": "Post",
+              "value": "post"
+            },
+            {
+              "text": "Page",
+              "value": "page"
+            },
+            {
+              "text": "Product",
+              "value": "product"
+            }
+          ]
+        },
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 32,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Loại bài WP"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "half"
+      },
+      "schema": {
+        "name": "wp_post_type",
+        "table": "posts",
+        "data_type": "character varying",
+        "default_value": "post",
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "wp_comment_status",
+      "type": "string",
+      "meta": {
+        "collection": "posts",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "wp_comment_status",
+        "group": null,
+        "hidden": false,
+        "interface": "select-dropdown",
+        "note": "Cho phép bình luận trên bài hay không",
+        "options": {
+          "choices": [
+            {
+              "text": "Open",
+              "value": "open"
+            },
+            {
+              "text": "Closed",
+              "value": "closed"
+            }
+          ]
+        },
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 33,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Bình luận WP"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "half"
+      },
+      "schema": {
+        "name": "wp_comment_status",
+        "table": "posts",
+        "data_type": "character varying",
+        "default_value": "open",
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "target_sites",
+      "type": "alias",
+      "meta": {
+        "collection": "posts",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "target_sites",
+        "group": null,
+        "hidden": false,
+        "interface": "list-m2m",
+        "note": "Chọn WP site đích để đẩy bài. Mỗi site có trạng thái publish riêng",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 34,
+        "special": [
+          "m2m"
+        ],
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Site đích"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "divider_internal",
+      "type": "alias",
+      "meta": {
+        "collection": "posts",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "divider_internal",
+        "group": null,
+        "hidden": false,
+        "interface": "presentation-divider",
+        "note": null,
+        "options": {
+          "title": "Internal"
+        },
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 35,
+        "special": [
+          "alias",
+          "no-data"
+        ],
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "content_source",
+      "type": "string",
+      "meta": {
+        "collection": "posts",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "content_source",
+        "group": null,
+        "hidden": false,
+        "interface": "select-dropdown",
+        "note": "Nguồn gốc nội dung: do người viết, AI tạo draft, hay từ agency",
+        "options": {
+          "choices": [
+            {
+              "text": "Human",
+              "value": "human"
+            },
+            {
+              "text": "AI Draft",
+              "value": "ai_draft"
+            },
+            {
+              "text": "Agency",
+              "value": "agency"
+            }
+          ]
+        },
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 36,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Nguồn nội dung"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "half"
+      },
+      "schema": {
+        "name": "content_source",
+        "table": "posts",
+        "data_type": "character varying",
+        "default_value": "human",
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "assigned_to",
+      "type": "uuid",
+      "meta": {
+        "collection": "posts",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "assigned_to",
+        "group": null,
+        "hidden": false,
+        "interface": "select-dropdown-m2o",
+        "note": "Người được giao duyệt bài này",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 37,
+        "special": [
+          "m2o"
+        ],
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Giao cho"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "half"
+      },
+      "schema": {
+        "name": "assigned_to",
+        "table": "posts",
+        "data_type": "uuid",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": "directus_users",
+        "foreign_key_column": "id"
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "review_deadline",
+      "type": "dateTime",
+      "meta": {
+        "collection": "posts",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "review_deadline",
+        "group": null,
+        "hidden": false,
+        "interface": "datetime",
+        "note": "Deadline duyệt bài. Quá hạn sẽ cảnh báo",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 38,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Hạn duyệt"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "half"
+      },
+      "schema": {
+        "name": "review_deadline",
+        "table": "posts",
+        "data_type": "timestamp without time zone",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "internal_notes",
+      "type": "text",
+      "meta": {
+        "collection": "posts",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "internal_notes",
+        "group": null,
+        "hidden": false,
+        "interface": "input-multiline",
+        "note": "Ghi chú nội bộ. Không được publish ra ngoài",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 39,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Ghi chú nội bộ"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "internal_notes",
+        "table": "posts",
+        "data_type": "text",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "ai_prompt_used",
+      "type": "text",
+      "meta": {
+        "collection": "posts",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "ai_prompt_used",
+        "group": null,
+        "hidden": false,
+        "interface": "input-multiline",
+        "note": "Prompt AI đã dùng để generate bài này. Lưu để tái sử dụng",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 40,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Prompt AI đã dùng"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "ai_prompt_used",
+        "table": "posts",
+        "data_type": "text",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "posts_brands",
+      "field": "id",
+      "type": "integer",
+      "meta": {
+        "collection": "posts_brands",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "id",
+        "group": null,
+        "hidden": true,
+        "interface": null,
+        "note": null,
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 1,
+        "special": null,
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "id",
+        "table": "posts_brands",
+        "data_type": "integer",
+        "default_value": "nextval('posts_brands_id_seq'::regclass)",
+        "max_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": false,
+        "is_unique": true,
+        "is_indexed": false,
+        "is_primary_key": true,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": true,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "posts_brands",
+      "field": "posts_id",
+      "type": "uuid",
+      "meta": {
+        "collection": "posts_brands",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "posts_id",
+        "group": null,
+        "hidden": true,
+        "interface": null,
+        "note": null,
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 2,
+        "special": null,
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "posts_id",
+        "table": "posts_brands",
+        "data_type": "uuid",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": "posts",
+        "foreign_key_column": "id"
+      }
+    },
+    {
+      "collection": "posts_brands",
+      "field": "brands_id",
+      "type": "uuid",
+      "meta": {
+        "collection": "posts_brands",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "brands_id",
+        "group": null,
+        "hidden": true,
+        "interface": null,
+        "note": null,
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 3,
+        "special": null,
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "brands_id",
+        "table": "posts_brands",
+        "data_type": "uuid",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": "brands",
+        "foreign_key_column": "id"
+      }
+    },
+    {
+      "collection": "posts_sites",
+      "field": "id",
+      "type": "uuid",
+      "meta": {
+        "collection": "posts_sites",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "id",
+        "group": null,
+        "hidden": true,
+        "interface": null,
+        "note": null,
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 1,
+        "special": [
+          "uuid"
+        ],
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "id",
+        "table": "posts_sites",
+        "data_type": "integer",
+        "default_value": "nextval('posts_sites_id_seq'::regclass)",
+        "max_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": false,
+        "is_unique": true,
+        "is_indexed": false,
+        "is_primary_key": true,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": true,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "posts_sites",
+      "field": "posts_id",
+      "type": "uuid",
+      "meta": {
+        "collection": "posts_sites",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "posts_id",
+        "group": null,
+        "hidden": true,
+        "interface": null,
+        "note": null,
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 2,
+        "special": null,
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "posts_id",
+        "table": "posts_sites",
+        "data_type": "uuid",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": "posts",
+        "foreign_key_column": "id"
+      }
+    },
+    {
+      "collection": "posts_sites",
+      "field": "sites_id",
+      "type": "uuid",
+      "meta": {
+        "collection": "posts_sites",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "sites_id",
+        "group": null,
+        "hidden": false,
+        "interface": "select-dropdown-m2o",
+        "note": "WP site đích",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 3,
+        "special": [
+          "m2o"
+        ],
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Site"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "sites_id",
+        "table": "posts_sites",
+        "data_type": "uuid",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": "sites",
+        "foreign_key_column": "id"
+      }
+    },
+    {
+      "collection": "posts_sites",
+      "field": "publish_status",
+      "type": "string",
+      "meta": {
+        "collection": "posts_sites",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "publish_status",
+        "group": null,
+        "hidden": false,
+        "interface": "select-dropdown",
+        "note": "Trạng thái đẩy bài lên site này",
+        "options": {
+          "choices": [
+            {
+              "color": "#FFB300",
+              "text": "Pending",
+              "value": "pending"
+            },
+            {
+              "color": "#66BB6A",
+              "text": "Published",
+              "value": "published"
+            },
+            {
+              "color": "#EF5350",
+              "text": "Failed",
+              "value": "failed"
+            },
+            {
+              "color": "#B0BEC5",
+              "text": "Skipped",
+              "value": "skipped"
+            }
+          ]
+        },
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 4,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Trạng thái publish"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "publish_status",
+        "table": "posts_sites",
+        "data_type": "character varying",
+        "default_value": "pending",
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "posts_sites",
+      "field": "wp_post_id",
+      "type": "integer",
+      "meta": {
+        "collection": "posts_sites",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "wp_post_id",
+        "group": null,
+        "hidden": false,
+        "interface": "input",
+        "note": "ID bài viết trên WP sau khi đẩy thành công",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 5,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "WP Post ID"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "half"
+      },
+      "schema": {
+        "name": "wp_post_id",
+        "table": "posts_sites",
+        "data_type": "integer",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "posts_sites",
+      "field": "wp_post_url",
+      "type": "string",
+      "meta": {
+        "collection": "posts_sites",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "wp_post_url",
+        "group": null,
+        "hidden": false,
+        "interface": "input",
+        "note": "URL bài viết trên WP",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 6,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "URL bài trên WP"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "half"
+      },
+      "schema": {
+        "name": "wp_post_url",
+        "table": "posts_sites",
+        "data_type": "character varying",
+        "default_value": null,
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "posts_sites",
+      "field": "published_at",
+      "type": "dateTime",
+      "meta": {
+        "collection": "posts_sites",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "published_at",
+        "group": null,
+        "hidden": false,
+        "interface": "datetime",
+        "note": "Thời điểm đẩy bài thành công",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 7,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Thời điểm publish"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "half"
+      },
+      "schema": {
+        "name": "published_at",
+        "table": "posts_sites",
+        "data_type": "timestamp without time zone",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "posts_sites",
+      "field": "error_log",
+      "type": "text",
+      "meta": {
+        "collection": "posts_sites",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "error_log",
+        "group": null,
+        "hidden": false,
+        "interface": "input-multiline",
+        "note": "Log lỗi nếu đẩy bài thất bại. Kiểm tra để debug n8n workflow",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 8,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Log lỗi"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "error_log",
+        "table": "posts_sites",
+        "data_type": "text",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "posts_tags",
+      "field": "id",
+      "type": "integer",
+      "meta": {
+        "collection": "posts_tags",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "id",
+        "group": null,
+        "hidden": true,
+        "interface": null,
+        "note": null,
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 1,
+        "special": null,
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "id",
+        "table": "posts_tags",
+        "data_type": "integer",
+        "default_value": "nextval('posts_tags_id_seq'::regclass)",
+        "max_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": false,
+        "is_unique": true,
+        "is_indexed": false,
+        "is_primary_key": true,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": true,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "posts_tags",
+      "field": "posts_id",
+      "type": "uuid",
+      "meta": {
+        "collection": "posts_tags",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "posts_id",
+        "group": null,
+        "hidden": true,
+        "interface": null,
+        "note": null,
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 2,
+        "special": null,
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "posts_id",
+        "table": "posts_tags",
+        "data_type": "uuid",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": "posts",
+        "foreign_key_column": "id"
+      }
+    },
+    {
+      "collection": "posts_tags",
+      "field": "tags_id",
+      "type": "uuid",
+      "meta": {
+        "collection": "posts_tags",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "tags_id",
+        "group": null,
+        "hidden": true,
+        "interface": null,
+        "note": null,
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 3,
+        "special": null,
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "tags_id",
+        "table": "posts_tags",
+        "data_type": "uuid",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": "tags",
+        "foreign_key_column": "id"
+      }
+    },
+    {
+      "collection": "sites",
+      "field": "id",
+      "type": "uuid",
+      "meta": {
+        "collection": "sites",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "id",
+        "group": null,
+        "hidden": true,
+        "interface": null,
+        "note": null,
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 1,
+        "special": [
+          "uuid"
+        ],
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "id",
+        "table": "sites",
+        "data_type": "uuid",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": false,
+        "is_unique": true,
+        "is_indexed": false,
+        "is_primary_key": true,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "sites",
+      "field": "name",
+      "type": "string",
+      "meta": {
+        "collection": "sites",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "name",
+        "group": null,
+        "hidden": false,
+        "interface": "input",
+        "note": "Tên hiển thị của WP site",
+        "options": null,
+        "readonly": false,
+        "required": true,
+        "searchable": true,
+        "sort": 2,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Tên site"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "name",
+        "table": "sites",
+        "data_type": "character varying",
+        "default_value": null,
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "sites",
+      "field": "slug",
+      "type": "string",
+      "meta": {
+        "collection": "sites",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "slug",
+        "group": null,
+        "hidden": false,
+        "interface": "input",
+        "note": "Slug định danh nội bộ (vd: tecotec-vn, ccw-vn)",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 3,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Slug nội bộ"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "slug",
+        "table": "sites",
+        "data_type": "character varying",
+        "default_value": null,
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": true,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "sites",
+      "field": "wp_url",
+      "type": "string",
+      "meta": {
+        "collection": "sites",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "wp_url",
+        "group": null,
+        "hidden": false,
+        "interface": "input",
+        "note": "URL gốc của WP site (không có dấu / cuối)",
+        "options": {
+          "placeholder": "https://yoursite.com"
+        },
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 4,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "URL WP"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "wp_url",
+        "table": "sites",
+        "data_type": "character varying",
+        "default_value": null,
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "sites",
+      "field": "wp_api_user",
+      "type": "string",
+      "meta": {
+        "collection": "sites",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "wp_api_user",
+        "group": null,
+        "hidden": false,
+        "interface": "input",
+        "note": "Username dùng cho WP Application Password",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 5,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "WP API User"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "wp_api_user",
+        "table": "sites",
+        "data_type": "character varying",
+        "default_value": null,
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "sites",
+      "field": "wp_api_password",
+      "type": "string",
+      "meta": {
+        "collection": "sites",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "wp_api_password",
+        "group": null,
+        "hidden": false,
+        "interface": "input",
+        "note": "WP Application Password (tạo trong WP > Users > Application Passwords)",
+        "options": {
+          "masked": true
+        },
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 6,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "WP API Password"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "wp_api_password",
+        "table": "sites",
+        "data_type": "character varying",
+        "default_value": null,
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "sites",
+      "field": "brand",
+      "type": "uuid",
+      "meta": {
+        "collection": "sites",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "brand",
+        "group": null,
+        "hidden": false,
+        "interface": "select-dropdown-m2o",
+        "note": "Site này thuộc brand nào",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 7,
+        "special": [
+          "m2o"
+        ],
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Brand"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "brand",
+        "table": "sites",
+        "data_type": "uuid",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": "brands",
+        "foreign_key_column": "id"
+      }
+    },
+    {
+      "collection": "sites",
+      "field": "default_author_id",
+      "type": "integer",
+      "meta": {
+        "collection": "sites",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "default_author_id",
+        "group": null,
+        "hidden": false,
+        "interface": "input",
+        "note": "ID tác giả mặc định trên WP site này (số nguyên)",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 8,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Author ID mặc định"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "default_author_id",
+        "table": "sites",
+        "data_type": "integer",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": 32,
+        "numeric_scale": 0,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "sites",
+      "field": "active",
+      "type": "boolean",
+      "meta": {
+        "collection": "sites",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "active",
+        "group": null,
+        "hidden": false,
+        "interface": "boolean",
+        "note": "Tắt để tạm ngưng đẩy bài lên site này",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 9,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Đang hoạt động"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "active",
+        "table": "sites",
+        "data_type": "boolean",
+        "default_value": true,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "tags",
+      "field": "id",
+      "type": "uuid",
+      "meta": {
+        "collection": "tags",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "id",
+        "group": null,
+        "hidden": true,
+        "interface": null,
+        "note": null,
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 1,
+        "special": [
+          "uuid"
+        ],
+        "translations": null,
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "id",
+        "table": "tags",
+        "data_type": "uuid",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": false,
+        "is_unique": true,
+        "is_indexed": false,
+        "is_primary_key": true,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "tags",
+      "field": "name",
+      "type": "string",
+      "meta": {
+        "collection": "tags",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "name",
+        "group": null,
+        "hidden": false,
+        "interface": "input",
+        "note": "Tên tag",
+        "options": null,
+        "readonly": false,
+        "required": true,
+        "searchable": true,
+        "sort": 2,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Tên tag"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "name",
+        "table": "tags",
+        "data_type": "character varying",
+        "default_value": null,
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "tags",
+      "field": "slug",
+      "type": "string",
+      "meta": {
+        "collection": "tags",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "slug",
+        "group": null,
+        "hidden": false,
+        "interface": "input",
+        "note": "Slug URL của tag",
+        "options": null,
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 3,
+        "special": null,
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "Slug"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "slug",
+        "table": "tags",
+        "data_type": "character varying",
+        "default_value": null,
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": true,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    },
+    {
+      "collection": "tags",
+      "field": "wp_tag_id",
+      "type": "json",
+      "meta": {
+        "collection": "tags",
+        "conditions": null,
+        "display": null,
+        "display_options": null,
+        "field": "wp_tag_id",
+        "group": null,
+        "hidden": false,
+        "interface": "input-code",
+        "note": "ID tag trên từng WP site. Format: {\"ten-site\": 45}",
+        "options": {
+          "language": "json"
+        },
+        "readonly": false,
+        "required": false,
+        "searchable": true,
+        "sort": 4,
+        "special": [
+          "cast-json"
+        ],
+        "translations": [
+          {
+            "language": "vi-VN",
+            "translation": "WP Tag ID"
+          }
+        ],
+        "validation": null,
+        "validation_message": null,
+        "width": "full"
+      },
+      "schema": {
+        "name": "wp_tag_id",
+        "table": "tags",
+        "data_type": "json",
+        "default_value": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "is_generated": false,
+        "generation_expression": null,
+        "has_auto_increment": false,
+        "foreign_key_table": null,
+        "foreign_key_column": null
+      }
+    }
+  ],
+  "systemFields": [],
+  "relations": [
+    {
+      "collection": "authors",
+      "field": "avatar",
+      "related_collection": "directus_files",
+      "meta": {
+        "junction_field": null,
+        "many_collection": "authors",
+        "many_field": "avatar",
+        "one_allowed_collections": null,
+        "one_collection": "directus_files",
+        "one_collection_field": null,
+        "one_deselect_action": "nullify",
+        "one_field": null,
+        "sort_field": null
+      },
+      "schema": {
+        "table": "authors",
+        "column": "avatar",
+        "foreign_key_table": "directus_files",
+        "foreign_key_column": "id",
+        "constraint_name": "authors_avatar_foreign",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION"
+      }
+    },
+    {
+      "collection": "authors",
+      "field": "directus_user",
+      "related_collection": "directus_users",
+      "meta": {
+        "junction_field": null,
+        "many_collection": "authors",
+        "many_field": "directus_user",
+        "one_allowed_collections": null,
+        "one_collection": "directus_users",
+        "one_collection_field": null,
+        "one_deselect_action": "nullify",
+        "one_field": null,
+        "sort_field": null
+      },
+      "schema": {
+        "table": "authors",
+        "column": "directus_user",
+        "foreign_key_table": "directus_users",
+        "foreign_key_column": "id",
+        "constraint_name": "authors_directus_user_foreign",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION"
+      }
+    },
+    {
+      "collection": "brands",
+      "field": "logo",
+      "related_collection": "directus_files",
+      "meta": {
+        "junction_field": null,
+        "many_collection": "brands",
+        "many_field": "logo",
+        "one_allowed_collections": null,
+        "one_collection": "directus_files",
+        "one_collection_field": null,
+        "one_deselect_action": "nullify",
+        "one_field": null,
+        "sort_field": null
+      },
+      "schema": {
+        "table": "brands",
+        "column": "logo",
+        "foreign_key_table": "directus_files",
+        "foreign_key_column": "id",
+        "constraint_name": "brands_logo_foreign",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION"
+      }
+    },
+    {
+      "collection": "categories",
+      "field": "parent",
+      "related_collection": "categories",
+      "meta": {
+        "junction_field": null,
+        "many_collection": "categories",
+        "many_field": "parent",
+        "one_allowed_collections": null,
+        "one_collection": "categories",
+        "one_collection_field": null,
+        "one_deselect_action": "nullify",
+        "one_field": null,
+        "sort_field": null
+      },
+      "schema": {
+        "table": "categories",
+        "column": "parent",
+        "foreign_key_table": "categories",
+        "foreign_key_column": "id",
+        "constraint_name": "categories_parent_foreign",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION"
+      }
+    },
+    {
+      "collection": "categories",
+      "field": "brand",
+      "related_collection": "brands",
+      "meta": {
+        "junction_field": null,
+        "many_collection": "categories",
+        "many_field": "brand",
+        "one_allowed_collections": null,
+        "one_collection": "brands",
+        "one_collection_field": null,
+        "one_deselect_action": "nullify",
+        "one_field": null,
+        "sort_field": null
+      },
+      "schema": {
+        "table": "categories",
+        "column": "brand",
+        "foreign_key_table": "brands",
+        "foreign_key_column": "id",
+        "constraint_name": "categories_brand_foreign",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION"
+      }
+    },
+    {
+      "collection": "post_translations",
+      "field": "posts_id",
+      "related_collection": "posts",
+      "meta": {
+        "junction_field": null,
+        "many_collection": "post_translations",
+        "many_field": "posts_id",
+        "one_allowed_collections": null,
+        "one_collection": "posts",
+        "one_collection_field": null,
+        "one_deselect_action": "nullify",
+        "one_field": null,
+        "sort_field": null
+      },
+      "schema": {
+        "table": "post_translations",
+        "column": "posts_id",
+        "foreign_key_table": "posts",
+        "foreign_key_column": "id",
+        "constraint_name": "post_translations_posts_id_foreign",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION"
+      }
+    },
+    {
+      "collection": "post_translations",
+      "field": "language",
+      "related_collection": "languages",
+      "meta": {
+        "junction_field": null,
+        "many_collection": "post_translations",
+        "many_field": "language",
+        "one_allowed_collections": null,
+        "one_collection": "languages",
+        "one_collection_field": null,
+        "one_deselect_action": "nullify",
+        "one_field": null,
+        "sort_field": null
+      },
+      "schema": {
+        "table": "post_translations",
+        "column": "language",
+        "foreign_key_table": "languages",
+        "foreign_key_column": "code",
+        "constraint_name": "post_translations_language_foreign",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION"
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "language",
+      "related_collection": "languages",
+      "meta": {
+        "junction_field": null,
+        "many_collection": "posts",
+        "many_field": "language",
+        "one_allowed_collections": null,
+        "one_collection": "languages",
+        "one_collection_field": null,
+        "one_deselect_action": "nullify",
+        "one_field": null,
+        "sort_field": null
+      },
+      "schema": {
+        "table": "posts",
+        "column": "language",
+        "foreign_key_table": "languages",
+        "foreign_key_column": "code",
+        "constraint_name": "posts_language_foreign",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION"
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "featured_image",
+      "related_collection": "directus_files",
+      "meta": {
+        "junction_field": null,
+        "many_collection": "posts",
+        "many_field": "featured_image",
+        "one_allowed_collections": null,
+        "one_collection": "directus_files",
+        "one_collection_field": null,
+        "one_deselect_action": "nullify",
+        "one_field": null,
+        "sort_field": null
+      },
+      "schema": {
+        "table": "posts",
+        "column": "featured_image",
+        "foreign_key_table": "directus_files",
+        "foreign_key_column": "id",
+        "constraint_name": "posts_featured_image_foreign",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION"
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "og_image",
+      "related_collection": "directus_files",
+      "meta": {
+        "junction_field": null,
+        "many_collection": "posts",
+        "many_field": "og_image",
+        "one_allowed_collections": null,
+        "one_collection": "directus_files",
+        "one_collection_field": null,
+        "one_deselect_action": "nullify",
+        "one_field": null,
+        "sort_field": null
+      },
+      "schema": {
+        "table": "posts",
+        "column": "og_image",
+        "foreign_key_table": "directus_files",
+        "foreign_key_column": "id",
+        "constraint_name": "posts_og_image_foreign",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION"
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "author",
+      "related_collection": "authors",
+      "meta": {
+        "junction_field": null,
+        "many_collection": "posts",
+        "many_field": "author",
+        "one_allowed_collections": null,
+        "one_collection": "authors",
+        "one_collection_field": null,
+        "one_deselect_action": "nullify",
+        "one_field": null,
+        "sort_field": null
+      },
+      "schema": {
+        "table": "posts",
+        "column": "author",
+        "foreign_key_table": "authors",
+        "foreign_key_column": "id",
+        "constraint_name": "posts_author_foreign",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION"
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "category",
+      "related_collection": "categories",
+      "meta": {
+        "junction_field": null,
+        "many_collection": "posts",
+        "many_field": "category",
+        "one_allowed_collections": null,
+        "one_collection": "categories",
+        "one_collection_field": null,
+        "one_deselect_action": "nullify",
+        "one_field": null,
+        "sort_field": null
+      },
+      "schema": {
+        "table": "posts",
+        "column": "category",
+        "foreign_key_table": "categories",
+        "foreign_key_column": "id",
+        "constraint_name": "posts_category_foreign",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION"
+      }
+    },
+    {
+      "collection": "posts",
+      "field": "assigned_to",
+      "related_collection": "directus_users",
+      "meta": {
+        "junction_field": null,
+        "many_collection": "posts",
+        "many_field": "assigned_to",
+        "one_allowed_collections": null,
+        "one_collection": "directus_users",
+        "one_collection_field": null,
+        "one_deselect_action": "nullify",
+        "one_field": null,
+        "sort_field": null
+      },
+      "schema": {
+        "table": "posts",
+        "column": "assigned_to",
+        "foreign_key_table": "directus_users",
+        "foreign_key_column": "id",
+        "constraint_name": "posts_assigned_to_foreign",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION"
+      }
+    },
+    {
+      "collection": "posts_brands",
+      "field": "posts_id",
+      "related_collection": "posts",
+      "meta": {
+        "junction_field": "brands_id",
+        "many_collection": "posts_brands",
+        "many_field": "posts_id",
+        "one_allowed_collections": null,
+        "one_collection": "posts",
+        "one_collection_field": null,
+        "one_deselect_action": "nullify",
+        "one_field": "brands",
+        "sort_field": null
+      },
+      "schema": {
+        "table": "posts_brands",
+        "column": "posts_id",
+        "foreign_key_table": "posts",
+        "foreign_key_column": "id",
+        "constraint_name": "posts_brands_posts_id_foreign",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION"
+      }
+    },
+    {
+      "collection": "posts_brands",
+      "field": "brands_id",
+      "related_collection": "brands",
+      "meta": {
+        "junction_field": "posts_id",
+        "many_collection": "posts_brands",
+        "many_field": "brands_id",
+        "one_allowed_collections": null,
+        "one_collection": "brands",
+        "one_collection_field": null,
+        "one_deselect_action": "nullify",
+        "one_field": null,
+        "sort_field": null
+      },
+      "schema": {
+        "table": "posts_brands",
+        "column": "brands_id",
+        "foreign_key_table": "brands",
+        "foreign_key_column": "id",
+        "constraint_name": "posts_brands_brands_id_foreign",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION"
+      }
+    },
+    {
+      "collection": "posts_sites",
+      "field": "posts_id",
+      "related_collection": "posts",
+      "meta": {
+        "junction_field": "sites_id",
+        "many_collection": "posts_sites",
+        "many_field": "posts_id",
+        "one_allowed_collections": null,
+        "one_collection": "posts",
+        "one_collection_field": null,
+        "one_deselect_action": "nullify",
+        "one_field": "target_sites",
+        "sort_field": null
+      },
+      "schema": {
+        "table": "posts_sites",
+        "column": "posts_id",
+        "foreign_key_table": "posts",
+        "foreign_key_column": "id",
+        "constraint_name": "posts_sites_posts_id_foreign",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION"
+      }
+    },
+    {
+      "collection": "posts_sites",
+      "field": "sites_id",
+      "related_collection": "sites",
+      "meta": {
+        "junction_field": "posts_id",
+        "many_collection": "posts_sites",
+        "many_field": "sites_id",
+        "one_allowed_collections": null,
+        "one_collection": "sites",
+        "one_collection_field": null,
+        "one_deselect_action": "nullify",
+        "one_field": null,
+        "sort_field": null
+      },
+      "schema": {
+        "table": "posts_sites",
+        "column": "sites_id",
+        "foreign_key_table": "sites",
+        "foreign_key_column": "id",
+        "constraint_name": "posts_sites_sites_id_foreign",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION"
+      }
+    },
+    {
+      "collection": "posts_tags",
+      "field": "posts_id",
+      "related_collection": "posts",
+      "meta": {
+        "junction_field": "tags_id",
+        "many_collection": "posts_tags",
+        "many_field": "posts_id",
+        "one_allowed_collections": null,
+        "one_collection": "posts",
+        "one_collection_field": null,
+        "one_deselect_action": "nullify",
+        "one_field": "tags",
+        "sort_field": null
+      },
+      "schema": {
+        "table": "posts_tags",
+        "column": "posts_id",
+        "foreign_key_table": "posts",
+        "foreign_key_column": "id",
+        "constraint_name": "posts_tags_posts_id_foreign",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION"
+      }
+    },
+    {
+      "collection": "posts_tags",
+      "field": "tags_id",
+      "related_collection": "tags",
+      "meta": {
+        "junction_field": "posts_id",
+        "many_collection": "posts_tags",
+        "many_field": "tags_id",
+        "one_allowed_collections": null,
+        "one_collection": "tags",
+        "one_collection_field": null,
+        "one_deselect_action": "nullify",
+        "one_field": null,
+        "sort_field": null
+      },
+      "schema": {
+        "table": "posts_tags",
+        "column": "tags_id",
+        "foreign_key_table": "tags",
+        "foreign_key_column": "id",
+        "constraint_name": "posts_tags_tags_id_foreign",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION"
+      }
+    },
+    {
+      "collection": "sites",
+      "field": "brand",
+      "related_collection": "brands",
+      "meta": {
+        "junction_field": null,
+        "many_collection": "sites",
+        "many_field": "brand",
+        "one_allowed_collections": null,
+        "one_collection": "brands",
+        "one_collection_field": null,
+        "one_deselect_action": "nullify",
+        "one_field": null,
+        "sort_field": null
+      },
+      "schema": {
+        "table": "sites",
+        "column": "brand",
+        "foreign_key_table": "brands",
+        "foreign_key_column": "id",
+        "constraint_name": "sites_brand_foreign",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION"
+      }
+    }
+  ]
+}

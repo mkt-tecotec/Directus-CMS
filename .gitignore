@@ -1,0 +1,18 @@
+# Environment files - KHÔNG BAO GIỜ commit
+.env
+docker/.env
+*.env.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Temp
+/tmp/

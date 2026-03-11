@@ -1,0 +1,68 @@
+services:
+  database:
+    image: postgres:15-alpine
+    container_name: directus-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_DATABASE}
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    networks:
+      - directus
+
+  cache:
+    image: redis:7-alpine
+    container_name: directus-redis
+    restart: unless-stopped
+    networks:
+      - directus
+
+  directus:
+    image: directus/directus:11
+    container_name: directus
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8055:8055"
+    depends_on:
+      - database
+      - cache
+    environment:
+      SECRET: ${SECRET}
+      PUBLIC_URL: ${PUBLIC_URL}
+
+      DB_CLIENT: pg
+      DB_HOST: database
+      DB_PORT: 5432
+      DB_DATABASE: ${DB_DATABASE}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+
+      CACHE_ENABLED: "true"
+      CACHE_STORE: redis
+      REDIS: redis://cache:6379
+
+      ADMIN_EMAIL: ${ADMIN_EMAIL}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+
+      CORS_ENABLED: "true"
+      CORS_ORIGIN: ${CORS_ORIGIN}
+
+      STORAGE_LOCATIONS: local
+      STORAGE_LOCAL_ROOT: /directus/uploads
+
+    volumes:
+      - uploads:/directus/uploads
+      - extensions:/directus/extensions
+    networks:
+      - directus
+
+volumes:
+  db-data:
+  uploads:
+  extensions:
+
+networks:
+  directus:
+    driver: bridge
