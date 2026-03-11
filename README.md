@@ -2,8 +2,8 @@
 
 Content hub trung tâm cho hệ sinh thái 20+ brands và 16 WP sites của TMK Holdings.
 
-**Stack:** Directus 11.x | PostgreSQL 15 | Redis 7 | Cloudflare Tunnel | Docker Compose
-**Domain production:** https://cms.tecotec.top
+**Stack:** Directus 11.x | PostgreSQL 15 | Redis 7 | Cloudflare Tunnel | Docker Compose  
+**Domain production:** https://cms.tecotec.top  
 **VPS:** Hostinger - Ubuntu 24.04 LTS - 4 vCPU - 16GB RAM
 
 ---
@@ -14,15 +14,15 @@ Content hub trung tâm cho hệ sinh thái 20+ brands và 16 WP sites của TMK 
 ├── schema/
 │   └── directus-snapshot-deploy.json   # Schema chuẩn để import
 ├── scripts/
-│   └── patch-vi-labels.py              # Viet hoa labels va notes
+│   └── patch-vi-labels.py              # Việt hóa labels và notes
 ├── docker/
 │   ├── docker-compose.yml
 │   └── .env.example
 ├── cloudflare/
 │   ├── tunnel-config.yml               # Config Cloudflare Tunnel
-│   └── README.md                       # Huong dan 2 cach setup tunnel
+│   └── README.md                       # Hướng dẫn 2 cách setup tunnel
 └── docs/
-    └── data-model.md                   # Mo ta mo hinh du lieu
+    └── data-model.md                   # Mô tả mô hình dữ liệu
 ```
 
 ---
@@ -33,9 +33,9 @@ Content hub trung tâm cho hệ sinh thái 20+ brands và 16 WP sites của TMK 
 Internet --> Cloudflare (SSL/TLS) --> Tunnel --> localhost:8055 (Directus)
 ```
 
-SSL do Cloudflare xu ly. Khong can Nginx, khong can Certbot.
+SSL do Cloudflare xử lý. Không cần Nginx, không cần Certbot.
 
-Xem chi tiet: [cloudflare/README.md](cloudflare/README.md)
+Xem chi tiết: [cloudflare/README.md](cloudflare/README.md)
 
 ---
 
@@ -68,22 +68,22 @@ git clone https://github.com/mkt-tecotec/Directus-CMS directus
 cd /opt/directus
 mkdir -p data/database data/uploads data/extensions
 cp docker/.env.example .env
-nano .env   # Dien day du cac gia tri CHANGE_ME
+nano .env   # Điền đầy đủ các giá trị CHANGE_ME
 ```
 
-Tao SECRET: `openssl rand -hex 32`
+Tạo SECRET: `openssl rand -hex 32`
 
 ### 4. Setup Cloudflare Tunnel
 
-Xem [cloudflare/README.md](cloudflare/README.md) - co 2 option (systemd hoac Docker).
+Xem [cloudflare/README.md](cloudflare/README.md) - có 2 option (systemd hoặc Docker).
 
-### 5. Start Directus
+### 5. Khởi động Directus
 
 ```bash
 cd /opt/directus/docker
 docker compose up -d
 docker compose logs -f directus
-# Doi thay: "Server started at http://0.0.0.0:8055"
+# Đợi thấy: "Server started at http://0.0.0.0:8055"
 ```
 
 ### 6. Firewall
@@ -94,7 +94,7 @@ ufw allow 22/tcp && ufw allow 80/tcp && ufw allow 443/tcp && ufw --force enable
 
 ### 7. Import schema
 
-Dang nhap Directus > My Profile > Token > Generate > Save token.
+Đăng nhập Directus > My Profile > Token > Generate > Save token.
 
 ```bash
 TOKEN="<STATIC_TOKEN>"
@@ -113,7 +113,7 @@ curl -X POST "https://cms.tecotec.top/schema/apply?force=true" \
   -d @/tmp/diff-apply.json
 ```
 
-### 8. Fix UUID fields (bat buoc sau import)
+### 8. Fix UUID fields (bắt buộc sau import)
 
 ```bash
 for col in brands sites authors categories tags posts posts_sites post_translations; do
@@ -124,22 +124,22 @@ for col in brands sites authors categories tags posts posts_sites post_translati
 done
 ```
 
-### 9. Viet hoa labels
+### 9. Việt hóa labels
 
 ```bash
 nano /opt/directus/scripts/patch-vi-labels.py
-# Chinh TOKEN va BASE_URL
+# Chỉnh TOKEN và BASE_URL
 python3 /opt/directus/scripts/patch-vi-labels.py
 ```
 
 ### 10. Seed data
 
-Tao theo thu tu trong Directus admin:
+Tạo theo thứ tự trong Directus admin:
 
 1. Languages: `vi` (default=true), `en`
 2. Brands: TECOTEC Group, OES, TUMIKI, CCW
 3. Sites: 16 WP sites (wp_url, wp_api_user, wp_api_password)
-4. Authors: Mapping thanh vien MarCom team
+4. Authors: Mapping thành viên MarCom team
 
 ---
 
@@ -161,7 +161,7 @@ chmod +x /opt/directus/backup.sh
 
 ---
 
-## Update schema
+## Cập nhật schema
 
 ```bash
 curl -s "https://cms.tecotec.top/schema/snapshot" \
@@ -176,15 +176,15 @@ git add schema/ && git commit -m "chore: update schema snapshot" && git push
 
 ## Troubleshooting
 
-| Van de | Lenh |
+| Vấn đề | Lệnh |
 |---|---|
 | Xem logs Directus | `docker compose logs -f directus` |
-| Directus khong start | `docker compose logs database` |
-| Tunnel khong hoat dong | `systemctl status cloudflared` hoac `docker compose logs cloudflared` |
+| Directus không start | `docker compose logs database` |
+| Tunnel không hoạt động | `systemctl status cloudflared` hoặc `docker compose logs cloudflared` |
 | Restart | `docker compose restart` |
 | Disk space | `df -h && docker system df` |
 
-**Fix FORBIDDEN sau import schema:**
+**Fix FORBIDDEN sau khi import schema:**
 
 ```bash
 docker exec -it directus-db psql -U directus -d directus -c "
@@ -195,8 +195,8 @@ ON CONFLICT DO NOTHING;"
 
 ---
 
-## Tai lieu
+## Tài liệu
 
-- [Mo hinh du lieu](docs/data-model.md)
+- [Mô hình dữ liệu](docs/data-model.md)
 - [Cloudflare Tunnel setup](cloudflare/README.md)
 - [Directus v11 Docs](https://docs.directus.io)

@@ -1,6 +1,6 @@
 # Cloudflare Tunnel - Directus CMS
 
-SSL va domain routing do Cloudflare xu ly. Khong can Nginx, khong can Certbot.
+SSL và domain routing do Cloudflare xử lý. Không cần Nginx, không cần Certbot.
 
 ```
 Internet --> Cloudflare (SSL) --> Tunnel --> localhost:8055 (Directus)
@@ -8,26 +8,26 @@ Internet --> Cloudflare (SSL) --> Tunnel --> localhost:8055 (Directus)
 
 ---
 
-## Option A: cloudflared chay systemd tren VPS (pho bien hon)
+## Option A: cloudflared chạy systemd trên VPS (phổ biến hơn)
 
 ```bash
-# Cai cloudflared
+# Cài cloudflared
 curl -L https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb -o cloudflared.deb
 dpkg -i cloudflared.deb
 
-# Dang nhap va tao tunnel
+# Đăng nhập và tạo tunnel
 cloudflared tunnel login
 cloudflared tunnel create directus-cms
 
 # Copy config
 mkdir -p ~/.cloudflared
-cp tunnel-config.yml ~/.cloudflared/config.yml
-# Chinh TUNNEL_ID trong file config
+cp /opt/directus/cloudflare/tunnel-config.yml ~/.cloudflared/config.yml
+# Chỉnh TUNNEL_ID trong file config
 
-# Tao DNS record (tu dong)
+# Tạo DNS record (tự động)
 cloudflared tunnel route dns directus-cms cms.tecotec.top
 
-# Chay nhu service
+# Chạy như service
 cloudflared service install
 systemctl enable cloudflared
 systemctl start cloudflared
@@ -36,35 +36,22 @@ systemctl status cloudflared
 
 ---
 
-## Option B: cloudflared chay trong Docker Compose
+## Option B: cloudflared chạy trong Docker Compose
 
-Them vao docker/docker-compose.yml:
+Bỏ comment phần `cloudflared` trong `docker/docker-compose.yml`, sau đó thêm vào `.env`:
 
-```yaml
-  cloudflared:
-    image: cloudflare/cloudflared:latest
-    container_name: directus-cloudflared
-    restart: unless-stopped
-    command: tunnel --no-autoupdate run --token ${CLOUDFLARE_TUNNEL_TOKEN}
-    depends_on:
-      - directus
-    networks:
-      - directus-net
+```
+CLOUDFLARE_TUNNEL_TOKEN=<TOKEN_TỪ_CLOUDFLARE_DASHBOARD>
 ```
 
-Them vao .env:
-```
-CLOUDFLARE_TUNNEL_TOKEN=<TOKEN_TU_CLOUDFLARE_DASHBOARD>
-```
+Lấy token: Cloudflare Dashboard > Zero Trust > Networks > Tunnels > Create tunnel > chọn Docker > copy token.
 
-Lay token: Cloudflare Dashboard > Zero Trust > Networks > Tunnels > Create tunnel > chon Docker > copy token.
-
-Trong Tunnel config tren dashboard, set service la: `http://directus:8055`
-(dung ten container thay vi localhost vi cung network Docker)
+Trong Tunnel config trên dashboard, set service là: `http://directus:8055`  
+(dùng tên container thay vì localhost vì cùng Docker network)
 
 ---
 
-## Kiem tra tunnel hoat dong
+## Kiểm tra tunnel hoạt động
 
 ```bash
 # Option A
@@ -75,4 +62,4 @@ cloudflared tunnel info directus-cms
 docker compose logs cloudflared
 ```
 
-Truy cap https://cms.tecotec.top - neu thay Directus login page la OK.
+Truy cập https://cms.tecotec.top - nếu thấy Directus login page là OK.

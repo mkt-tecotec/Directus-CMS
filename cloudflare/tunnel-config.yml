@@ -1,8 +1,8 @@
 # Cloudflare Tunnel config cho Directus CMS
-# File nay dat tai: ~/.cloudflared/config.yml (neu chay systemd)
-# hoac mount vao container cloudflared
+# Đặt tại: ~/.cloudflared/config.yml (nếu chạy systemd)
+# hoặc mount vào container cloudflared
 
-tunnel: <TUNNEL_ID>           # lay tu: cloudflared tunnel list
+tunnel: <TUNNEL_ID>           # lấy từ: cloudflared tunnel list
 credentials-file: /etc/cloudflared/<TUNNEL_ID>.json
 
 ingress:
