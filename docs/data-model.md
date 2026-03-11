@@ -1,19 +1,32 @@
-# Mô hình dữ liệu - Directus CMS TECOTEC Group
+# Mô hình dữ liệu - Directus CMS
 
-> Phiên bản: Directus 11.x | Database: PostgreSQL 15 | Cập nhật: 2026-03
+**TECOTEC Group MarCom Content Repository**
+Directus v11.16.1 | PostgreSQL 15 | 11 collections | 97 fields | 20 relations
 
-## Tổng quan
+---
 
-Directus CMS là kho bài viết trung tâm (headless CMS) phục vụ hệ sinh thái đa thương hiệu TMK Holdings. Nội dung được tạo và duyệt tại đây, sau đó n8n tự động đẩy lên 16 WP sites đích.
+## Kiến trúc tổng quan
+
+Directus đóng vai trò **content hub trung tâm**: soạn thảo 1 lần, n8n tự động đẩy lên 16 WP sites đích.
 
 ```
-Directus CMS
-    └── n8n Workflow
-            ├── tecotec.vn (TECOTEC Group)
-            ├── oes.vn (OES)
-            ├── tumiki.vn (TUMIKI)
-            ├── clevelandcyclewerks.vn (CCW)
-            └── ... (16 sites tổng)
+[Editor / AI draft]
+        |
+        v
+[Directus CMS - cms.tecotec.top]
+  - Quy trình duyệt: draft > review > approved > published
+  - Media hub: ảnh lưu tập trung, n8n upload lên từng WP
+  - SEO fields: RankMath-compatible
+        |
+        v
+[n8n Workflow]
+        |
+        +---> tecotec.vn
+        +---> tecostore.vn
+        +---> oes.vn
+        +---> tumiki.vn
+        +---> ccw.vn
+        +---> ... (16 sites tổng)
 ```
 
 ---
@@ -21,265 +34,255 @@ Directus CMS
 ## Sơ đồ quan hệ
 
 ```
-languages ──────── posts ──────────── categories (self-ref)
-                    │  │                    │
-                    │  ├── authors           └── brands
-                    │  ├── tags (M2M via posts_tags)
-                    │  ├── brands (M2M via posts_brands)
-                    │  ├── sites (M2M via posts_sites)
-                    │  └── post_translations
-                    │
-                   sites ──── brands
+languages <──────── posts ──────────> categories ──> brands
+                      |    └──────> authors
+                      |    └──────> directus_files (featured_image)
+                      |    └──────> directus_files (og_image)
+                      |    └──────> directus_users (assigned_to)
+                      |
+                      +── posts_tags ────────────> tags
+                      +── posts_brands ──────────> brands
+                      +── posts_sites ───────────> sites ──> brands
+                      └── post_translations ─────> languages
+
+categories.parent -> categories  (phân cấp đệ quy)
+authors.avatar -> directus_files
+authors.directus_user -> directus_users
+brands.logo -> directus_files
 ```
 
 ---
 
-## Collections
+## Collection: `posts` (40 fields)
 
-### 1. posts
+Collection chính. Mỗi record là 1 bài viết hoàn chỉnh.
 
-Kho bài viết trung tâm. Đây là collection chính của toàn hệ thống.
+**Nội dung**
 
-| Field | Type | Label | Mô tả |
-|-------|------|-------|-------|
-| id | uuid | - | Primary key, tự động tạo |
-| status | string | Trạng thái | Quy trình duyệt: `draft` / `review` / `approved` / `published` / `archived` / `rejected` |
-| title | string | Tiêu đề | Tiêu đề gốc (ngôn ngữ chính) |
-| slug | string | Slug URL | Tự động tạo từ tiêu đề nếu để trống |
-| language | string | Ngôn ngữ | FK tới `languages.code` |
-| excerpt | text | Tóm tắt | Tối đa 300 ký tự, dùng làm WP excerpt |
-| content | text | Nội dung | Nội dung chính (HTML/Markdown/Blocks) |
-| content_format | string | Định dạng nội dung | `html` / `markdown` / `blocks` |
-| featured_image | uuid | Ảnh đại diện | FK tới `directus_files` |
-| author | uuid | Tác giả | FK tới `authors.id` |
-| category | uuid | Danh mục | FK tới `categories.id` (1 danh mục chính) |
-| tags | alias | Tags | M2M qua `posts_tags` |
-| brands | alias | Brands | M2M qua `posts_brands` |
-| target_sites | alias | Site đích | M2M qua `posts_sites` |
-| publish_date | dateTime | Ngày đăng | Ngày giờ dự kiến đăng bài |
-| wp_post_type | string | Loại bài WP | `post` / `page` / `product` |
-| wp_comment_status | string | Bình luận WP | `open` / `closed` |
-| seo_title | string | Tiêu đề SEO | Map sang `rank_math_title` trên WP |
-| seo_description | text | Mô tả SEO | Tối đa 160 ký tự, map sang `rank_math_description` |
-| seo_focus_keyword | string | Từ khóa trọng tâm | Map sang `rank_math_focus_keyword` |
-| seo_canonical_url | string | URL Canonical | Dùng khi bài là bản syndicate từ nơi khác |
-| seo_robots | string | Robots | `index,follow` / `noindex,nofollow` |
-| schema_type | string | Schema Type | `BlogPosting` / `Article` / `NewsArticle` |
-| og_title | string | Tiêu đề OG | Tiêu đề khi chia sẻ Facebook/Zalo |
-| og_description | text | Mô tả OG | Mô tả khi chia sẻ mạng xã hội |
-| og_image | uuid | Ảnh OG | Tỷ lệ khuyến nghị 1200x630px |
-| content_source | string | Nguồn nội dung | `human` / `ai_draft` / `agency` |
-| assigned_to | uuid | Giao cho | FK tới `directus_users` |
-| review_deadline | dateTime | Hạn duyệt | Quá hạn sẽ cảnh báo |
-| internal_notes | text | Ghi chú nội bộ | Không publish ra ngoài |
-| ai_prompt_used | text | Prompt AI đã dùng | Lưu để tái sử dụng |
-| date_created | timestamp | Ngày tạo | Tự động |
-| date_updated | timestamp | Ngày cập nhật | Tự động |
-| user_created | uuid | Người tạo | Tự động |
-| user_updated | uuid | Người cập nhật | Tự động |
+| Field | Type | Ghi chú |
+|---|---|---|
+| `id` | uuid | Primary key, tự động tạo |
+| `status` | string | Trạng thái quy trình duyệt (xem workflow bên dưới) |
+| `title` | string | Tiêu đề gốc (ngôn ngữ chính) |
+| `slug` | string | URL slug. Tự động tạo từ tiêu đề nếu để trống |
+| `language` | string (FK) | Ngôn ngữ gốc -> `languages.code` |
+| `excerpt` | text | Tóm tắt ngắn, map sang WP excerpt (tối đa 300 ký tự) |
+| `content` | text | Nội dung chính (HTML) |
+| `content_format` | string | `html` / `markdown` / `blocks` |
+| `featured_image` | uuid (FK) | Ảnh đại diện -> `directus_files`. n8n đẩy lên WP |
 
-**Quy trình duyệt (status workflow):**
+**Taxonomy**
+
+| Field | Type | Ghi chú |
+|---|---|---|
+| `author` | uuid (FK) | Tác giả -> `authors.id` |
+| `category` | uuid (FK) | Danh mục chính (1 danh mục) -> `categories.id` |
+| `tags` | M2M | Nhiều tags -> qua `posts_tags` |
+| `brands` | M2M | Thuộc brand nào -> qua `posts_brands` |
+
+**SEO (RankMath mapping)**
+
+| Field | Type | WP meta key |
+|---|---|---|
+| `seo_title` | string | `rank_math_title` |
+| `seo_description` | text | `rank_math_description` (tối đa 160 ký tự) |
+| `seo_focus_keyword` | string | `rank_math_focus_keyword` |
+| `seo_canonical_url` | string | `rank_math_canonical_url` |
+| `seo_robots` | string | `rank_math_robots` |
+| `schema_type` | string | `BlogPosting` / `Article` / `NewsArticle` / `HowTo` |
+| `og_title` | string | `rank_math_facebook_title` |
+| `og_description` | text | `rank_math_facebook_description` |
+| `og_image` | uuid (FK) | `rank_math_facebook_image` |
+
+**Publish settings**
+
+| Field | Type | Ghi chú |
+|---|---|---|
+| `publish_date` | dateTime | Ngày giờ dự kiến đăng bài |
+| `wp_post_type` | string | `post` / `page` / `product` |
+| `wp_comment_status` | string | `open` / `closed` |
+| `target_sites` | M2M | WP sites đích -> qua `posts_sites` |
+
+**Internal / workflow**
+
+| Field | Type | Ghi chú |
+|---|---|---|
+| `content_source` | string | `human` / `ai_draft` / `agency` |
+| `assigned_to` | uuid (FK) | Người duyệt -> `directus_users` |
+| `review_deadline` | dateTime | Deadline duyệt bài |
+| `internal_notes` | text | Ghi chú nội bộ, không publish |
+| `ai_prompt_used` | text | Prompt AI đã dùng, lưu để tái sử dụng |
+| `date_created` | timestamp | Tự động |
+| `date_updated` | timestamp | Tự động |
+| `user_created` | uuid | Tự động |
+| `user_updated` | uuid | Tự động |
+
+**Status workflow:**
 ```
-draft → review → approved → published
-                          → rejected → draft (sửa lại)
-published → archived
+draft --> review --> approved --> published --> archived
+             |
+             v
+          rejected --> draft
 ```
 
 ---
 
-### 2. categories
+## Collection: `categories` (7 fields)
 
-Danh mục phân cấp. Hỗ trợ nested không giới hạn cấp.
-
-| Field | Type | Label | Mô tả |
-|-------|------|-------|-------|
-| id | uuid | - | Primary key |
-| name | string | Tên danh mục | Tên hiển thị |
-| slug | string | Slug | Slug URL |
-| description | text | Mô tả | Dùng cho SEO category page |
-| parent | uuid | Danh mục cha | Self-referential FK (null = root) |
-| brand | uuid | Brand | FK tới `brands.id` |
-| wp_category_id | json | WP Category ID | Map ID theo từng site: `{"tecotec-vn": 12, "oes-vn": 5}` |
+| Field | Type | Ghi chú |
+|---|---|---|
+| `id` | uuid | Primary key |
+| `name` | string | Tên danh mục hiển thị |
+| `slug` | string | Slug URL |
+| `description` | text | Mô tả (dùng cho SEO category page) |
+| `parent` | uuid (FK) | Danh mục cha - self-referential, tạo cấu trúc cây |
+| `brand` | uuid (FK) | Thuộc brand -> `brands.id` |
+| `wp_category_id` | json | ID trên từng WP site: `{"tecotec-vn": 12, "ccw-vn": 5}` |
 
 ---
 
-### 3. tags
+## Collection: `tags` (4 fields)
 
-Tags gắn vào bài viết (M2M).
-
-| Field | Type | Label | Mô tả |
-|-------|------|-------|-------|
-| id | uuid | - | Primary key |
-| name | string | Tên tag | Tên tag |
-| slug | string | Slug | Slug URL |
-| wp_tag_id | json | WP Tag ID | Map ID theo từng site: `{"tecotec-vn": 45}` |
+| Field | Type | Ghi chú |
+|---|---|---|
+| `id` | uuid | Primary key |
+| `name` | string | Tên tag |
+| `slug` | string | Slug URL |
+| `wp_tag_id` | json | ID trên từng WP site: `{"tecotec-vn": 45}` |
 
 ---
 
-### 4. authors
+## Collection: `authors` (6 fields)
 
-Tác giả bài viết. Liên kết với tài khoản Directus.
-
-| Field | Type | Label | Mô tả |
-|-------|------|-------|-------|
-| id | uuid | - | Primary key |
-| display_name | string | Tên hiển thị | Tên hiển thị trên bài viết |
-| email | string | Email | Email liên hệ |
-| bio | text | Tiểu sử | Hiển thị trong author box trên WP |
-| avatar | uuid | Ảnh đại diện | FK tới `directus_files` |
-| directus_user | uuid | Tài khoản Directus | FK tới `directus_users` |
+| Field | Type | Ghi chú |
+|---|---|---|
+| `id` | uuid | Primary key |
+| `display_name` | string | Tên hiển thị trên bài viết |
+| `email` | string | Email liên hệ |
+| `bio` | text | Tiểu sử ngắn. Hiển thị trong author box trên WP |
+| `avatar` | uuid (FK) | Ảnh đại diện -> `directus_files` |
+| `directus_user` | uuid (FK) | Liên kết tài khoản Directus -> `directus_users` |
 
 ---
 
-### 5. brands
+## Collection: `brands` (5 fields)
 
-4 brands trong hệ sinh thái TMK Holdings.
+| Field | Type | Ghi chú |
+|---|---|---|
+| `id` | uuid | Primary key |
+| `name` | string | Tên brand |
+| `slug` | string | Slug nội bộ |
+| `color` | string | Màu chủ đạo (hex) |
+| `logo` | uuid (FK) | Logo -> `directus_files` |
 
-| Field | Type | Label | Mô tả |
-|-------|------|-------|-------|
-| id | uuid | - | Primary key |
-| name | string | Tên brand | Ví dụ: TECOTEC Group |
-| slug | string | Slug | Định danh nội bộ: `tecotec-group`, `ccw`, `oes`, `tumiki` |
-| color | string | Màu chủ đạo | Hex code: `#003087` |
-| logo | uuid | Logo | FK tới `directus_files` |
-
-**Seed data:**
-
-| name | slug |
-|------|------|
-| TECOTEC Group | tecotec-group |
-| OES | oes |
-| TUMIKI | tumiki |
-| Cleveland CycleWerks Vietnam | ccw |
+Brands hiện tại: TECOTEC Group (`tecotec-group`), OES (`oes`), TUMIKI (`tumiki`), CCW (`ccw`).
 
 ---
 
-### 6. sites
+## Collection: `sites` (9 fields)
 
-16 WP sites đích. Lưu thông tin kết nối API.
-
-| Field | Type | Label | Mô tả |
-|-------|------|-------|-------|
-| id | uuid | - | Primary key |
-| name | string | Tên site | Tên hiển thị |
-| slug | string | Slug nội bộ | Định danh: `tecotec-vn`, `ccw-vn` |
-| wp_url | string | URL WP | URL gốc, không có `/` cuối |
-| wp_api_user | string | WP API User | Username cho Application Password |
-| wp_api_password | string | WP API Password | WP Application Password |
-| brand | uuid | Brand | FK tới `brands.id` |
-| default_author_id | integer | Author ID mặc định | Author ID trên WP site đó |
-| active | boolean | Đang hoạt động | Tắt để tạm ngưng đẩy bài |
+| Field | Type | Ghi chú |
+|---|---|---|
+| `id` | uuid | Primary key |
+| `name` | string | Tên hiển thị |
+| `slug` | string | Slug nội bộ (vd: `tecotec-vn`) |
+| `wp_url` | string | Base URL không có dấu `/` cuối |
+| `wp_api_user` | string | Username WP Application Password |
+| `wp_api_password` | string | WP Application Password |
+| `brand` | uuid (FK) | Thuộc brand -> `brands.id` |
+| `default_author_id` | integer | Author ID mặc định trên WP |
+| `active` | boolean | Tắt để ngưng đẩy bài |
 
 ---
 
-### 7. languages
+## Collection: `languages` (3 fields)
 
-Ngôn ngữ hỗ trợ. Hiện tại: Tiếng Việt (mặc định) và English.
-
-| Field | Type | Label | Mô tả |
-|-------|------|-------|-------|
-| code | string | Mã ngôn ngữ | ISO 639-1: `vi`, `en` |
-| name | string | Tên ngôn ngữ | `Tiếng Việt`, `English` |
-| default | boolean | Mặc định | Chỉ 1 ngôn ngữ được đánh dấu default |
+| Field | Type | Ghi chú |
+|---|---|---|
+| `code` | string (PK) | ISO 639-1: `vi`, `en` |
+| `name` | string | `Tiếng Việt`, `English` |
+| `default` | boolean | Ngôn ngữ mặc định |
 
 ---
 
-### 8. posts_sites (Junction)
+## Collection: `post_translations` (9 fields)
 
-Theo dõi trạng thái publish của từng bài trên từng site.
-
-| Field | Type | Label | Mô tả |
-|-------|------|-------|-------|
-| id | uuid | - | Primary key |
-| posts_id | uuid | - | FK tới `posts.id` |
-| sites_id | uuid | Site | FK tới `sites.id` |
-| publish_status | string | Trạng thái publish | `pending` / `published` / `failed` / `skipped` |
-| wp_post_id | integer | WP Post ID | ID bài trên WP sau khi đẩy thành công |
-| wp_post_url | string | URL bài trên WP | URL đầy đủ bài viết trên WP |
-| published_at | dateTime | Thời điểm publish | Timestamp đẩy thành công |
-| error_log | text | Log lỗi | Chi tiết lỗi nếu n8n workflow thất bại |
-
----
-
-### 9. posts_tags (Junction)
-
-Quan hệ M2M giữa bài viết và tags.
-
-| Field | Type | Mô tả |
-|-------|------|-------|
-| id | integer | Primary key |
-| posts_id | uuid | FK tới `posts.id` |
-| tags_id | uuid | FK tới `tags.id` |
+| Field | Type | Ghi chú |
+|---|---|---|
+| `id` | uuid | Primary key |
+| `posts_id` | uuid (FK) | Bài viết gốc -> `posts.id` |
+| `language` | string (FK) | Ngôn ngữ -> `languages.code` |
+| `title` | string | Tiêu đề bản dịch |
+| `slug` | string | Slug riêng cho ngôn ngữ này |
+| `excerpt` | text | Tóm tắt bản dịch |
+| `content` | text | Nội dung bản dịch |
+| `seo_title` | string | SEO title bản dịch |
+| `seo_description` | text | SEO description bản dịch |
 
 ---
 
-### 10. posts_brands (Junction)
+## Collection: `posts_sites` - Junction Posts x Sites (8 fields)
 
-Quan hệ M2M giữa bài viết và brands.
+Bảng trung gian đặc biệt: lưu trạng thái publish riêng từng site. **n8n đọc bảng này để biết cần push bài nào đến site nào.**
 
-| Field | Type | Mô tả |
-|-------|------|-------|
-| id | integer | Primary key |
-| posts_id | uuid | FK tới `posts.id` |
-| brands_id | uuid | FK tới `brands.id` |
-
----
-
-### 11. post_translations
-
-Bản dịch của bài viết sang ngôn ngữ khác.
-
-| Field | Type | Label | Mô tả |
-|-------|------|-------|-------|
-| id | uuid | - | Primary key |
-| posts_id | uuid | Bài viết gốc | FK tới `posts.id` |
-| language | string | Ngôn ngữ | FK tới `languages.code` |
-| title | string | Tiêu đề | Tiêu đề bản dịch |
-| slug | string | Slug | Slug riêng cho ngôn ngữ này |
-| excerpt | text | Tóm tắt | Tóm tắt bản dịch |
-| content | text | Nội dung | Nội dung bản dịch |
-| seo_title | string | Tiêu đề SEO | SEO title của bản dịch |
-| seo_description | text | Mô tả SEO | SEO description của bản dịch |
+| Field | Type | Ghi chú |
+|---|---|---|
+| `id` | uuid | Primary key |
+| `posts_id` | uuid (FK) | -> `posts.id` |
+| `sites_id` | uuid (FK) | -> `sites.id` |
+| `publish_status` | string | `pending` / `published` / `failed` / `skipped` |
+| `wp_post_id` | integer | ID bài trên WP sau khi push thành công |
+| `wp_post_url` | string | URL bài trên WP |
+| `published_at` | dateTime | Thời điểm push thành công |
+| `error_log` | text | Log lỗi nếu push thất bại |
 
 ---
 
-## Mapping SEO sang RankMath (WP)
+## Collection: `posts_tags` (3 fields)
 
-Khi n8n đẩy bài lên WP, các field SEO được map vào post meta của RankMath:
+| Field | Type |
+|---|---|
+| `id` | integer (auto) |
+| `posts_id` | uuid (FK) -> `posts` |
+| `tags_id` | uuid (FK) -> `tags` |
 
-| Directus field | WP post meta key |
-|----------------|-----------------|
-| seo_title | `rank_math_title` |
-| seo_description | `rank_math_description` |
-| seo_focus_keyword | `rank_math_focus_keyword` |
-| seo_canonical_url | `rank_math_canonical_url` |
-| seo_robots | `rank_math_robots` |
-| schema_type | `rank_math_schema_type` |
-| og_title | `rank_math_facebook_title` |
-| og_description | `rank_math_facebook_description` |
-| og_image | `rank_math_facebook_image` |
+## Collection: `posts_brands` (3 fields)
+
+| Field | Type |
+|---|---|
+| `id` | integer (auto) |
+| `posts_id` | uuid (FK) -> `posts` |
+| `brands_id` | uuid (FK) -> `brands` |
 
 ---
 
-## n8n Workflow Logic
+## n8n Push Workflow Logic
+
+Trigger: `posts_sites.publish_status = "pending"`
 
 ```
-Trigger: posts_sites.publish_status = "pending"
-    │
-    ├── Lấy post data từ Directus API
-    ├── Lấy site credentials (wp_url, wp_api_user, wp_api_password)
-    ├── Upload featured_image lên WP Media
-    ├── POST /wp-json/wp/v2/posts
-    │       body: title, content, excerpt, slug, status, categories, tags
-    │       meta: rank_math_* fields
-    │
-    ├── Thành công → PATCH posts_sites:
-    │       publish_status = "published"
-    │       wp_post_id = <id>
-    │       wp_post_url = <link>
-    │       published_at = <now>
-    │
-    └── Thất bại → PATCH posts_sites:
-            publish_status = "failed"
-            error_log = <error message>
+1. Đọc post data từ Directus API (kèm relations)
+2. Download featured_image từ /assets/{id}
+3. Upload ảnh lên WP: POST /wp-json/wp/v2/media -> attachment_id
+4. Map wp_category_id / wp_tag_id từ JSON field theo site slug
+5. Map SEO fields sang RankMath meta keys
+6. Tạo bài: POST /wp-json/wp/v2/posts
+7. Cập nhật posts_sites:
+   publish_status = "published", wp_post_id, wp_post_url, published_at
+8. Nếu lỗi: publish_status = "failed", error_log = message
 ```
+
+---
+
+## Seed data sau khi deploy
+
+Thứ tự tạo (do quan hệ phụ thuộc):
+
+1. Languages: `vi` (default=true), `en`
+2. Brands: TECOTEC Group, OES, TUMIKI, CCW
+3. Sites: 16 WP sites với đủ `wp_url`, `wp_api_user`, `wp_api_password`
+4. Authors: Mapping thành viên MarCom team với Directus users
+
+---
+
+*TECOTEC Group MarCom - Tài liệu nội bộ*
